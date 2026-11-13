@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Pauta" />
+    <meta name="theme-color" content="#f6f3ee" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+    <title>Pauta</title>
+  </head>
+  <body>
+    <section id="library" class="screen">
+      <header class="lib-head">
+        <div class="brand"><img src="icon.svg" alt="" width="40" height="40" /><div><h1>Pauta</h1><p>Rascunhos de partitura offline · abre .mscz, exporta MusicXML pro MuseScore</p></div></div>
+        <div class="lib-actions">
+          <button id="new-btn" class="b primary big">+ Nova partitura</button>
+          <button id="import-btn" class="b big">Importar arquivo…</button>
+          <input id="file-input" type="file" multiple hidden />
+        </div>
+      </header>
+      <ul id="lib-list"></ul>
+      <footer class="lib-foot">
+        <details>
+          <summary>Como usar</summary>
+          <ul>
+            <li><b>Escrever</b> (✏️): encoste o dedo na pauta — aparece a nota fantasma com o nome; deslize pra cima/baixo pra ajustar a altura e solte pra gravar. Escolha a figura na barra de baixo antes.</li>
+            <li><b>Selecionar</b> (✋): toque numa nota; arraste ela pra cima/baixo pra mudar a altura; use ♯ ♭ ♮, ligadura, tercina, apagar.</li>
+            <li><b>🎹 Teclado</b>: cada tecla escreve uma nota na posição do cursor azul e avança.</li>
+            <li><b>Acorde</b> (+): ligado, as notas novas entram no acorde da posição.</li>
+            <li><b>Exportar</b>: gera um <code>.musicxml</code>; mande pro Mac (AirDrop/Arquivos) e abra no MuseScore (Arquivo › Abrir), depois salve como .mscz.</li>
+            <li>Teclado físico: A–G notas (Shift = acorde), 2–7 figuras, <code>.</code> ponto, <code>0</code> pausa, setas, ⌘Z, espaço toca.</li>
+            <li>Tudo fica salvo no iPad automaticamente, sem internet.</li>
+          </ul>
+        </details>
+      </footer>
+    </section>
+
+    <section id="editor" class="screen hidden">
+      <header id="topbar"></header>
+      <main id="scroller">
+        <div id="page">
+          <div id="title-block"></div>
+          <div id="sheet">
+            <div id="systems"></div>
+            <svg id="overlay" xmlns="http://www.w3.org/2000/svg"></svg>
+          </div>
+        </div>
+      </main>
+      <div id="status"></div>
+      <div id="piano" class="hidden"></div>
+      <footer id="palette"></footer>
+    </section>
+    <div id="toast"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
