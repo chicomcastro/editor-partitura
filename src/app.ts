@@ -1463,7 +1463,7 @@ export function boot() {
   void requestPersistence();
   void showLibrary();
   // exposto pra testes e2e
-  (window as unknown as { __pauta: unknown }).__pauta = { st, actions, render, openScore, importFiles, exportMusicXml, undo, redo };
+  (window as unknown as { __pauta: unknown }).__pauta = { st, actions, get systems() { return systems; }, render, openScore, importFiles, exportMusicXml, undo, redo };
 }
 
 // mantém referências que só os testes usam
