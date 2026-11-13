@@ -1,0 +1,20 @@
+// Smoke test do site publicado: carrega, SW assume, recarrega offline e cria partitura.
+import { webkit, devices } from '@playwright/test';
+const url = process.argv[2] ?? 'https://chicomcastro.github.io/editor-partitura/';
+const browser = await webkit.launch();
+const ctx = await browser.newContext({ ...devices['iPad Pro 11'] });
+const page = await ctx.newPage();
+const errs: string[] = [];
+page.on('pageerror', (e) => errs.push(e.message));
+await page.goto(url);
+await page.evaluate(async () => { await navigator.serviceWorker.ready; });
+await page.reload();
+await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+await ctx.setOffline(true);
+await page.reload();
+await page.click('#new-btn');
+await page.click('dialog button[value=create]');
+await page.waitForSelector('#systems svg');
+console.log('offline OK, systems:', await page.locator('#systems svg').count(), 'errors:', errs);
+await page.screenshot({ path: process.argv[3] ?? 'live.png' });
+await browser.close();

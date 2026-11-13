@@ -56,7 +56,7 @@ const st = {
   voice: 0,
   sel: null as Sel | null,
   cursor: null as Cursor | null,
-  zoom: Number(localStorage.getItem('pauta.zoom') ?? (window.innerWidth >= 1000 ? 1.25 : 1.1)) || 1.2,
+  zoom: Number(localStorage.getItem('pauta.zoom') ?? 1.5) || 1.5,
   history: [] as string[],
   future: [] as string[],
   clipboard: null as Measure[] | null,

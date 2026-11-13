@@ -413,7 +413,7 @@ textarea {
 #status {
   position: absolute;
   right: 12px;
-  bottom: calc(var(--palette-h, 130px) + 8px);
+  top: calc(66px + var(--safe-t));
   background: rgba(31, 58, 95, 0.88);
   color: #fff;
   font-size: 13px;
