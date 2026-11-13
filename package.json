@@ -1,0 +1,23 @@
+{
+  "name": "editor-partitura",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "vexflow": "^4.2.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-pwa": "^0.20.5",
+    "vitest": "^2.1.9"
+  }
+}
